@@ -1,0 +1,28 @@
+.workout-list{
+    background-color:burlywood;
+}
+
+.workout-list-item{
+    border-width: 0 1px 1px 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.workout-list-item:first-child{
+    border-width: 1px 1px 1px 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.edit-workout{
+    text-align:left;
+}
+
+h5{
+    text-align:center;
+    margin: 2px 0 2px 0;
+}
+
+.formControl{
+    vertical-align: middle;
+}

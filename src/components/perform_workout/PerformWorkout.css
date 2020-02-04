@@ -1,0 +1,24 @@
+.set-list-item{
+    background-color: blue;
+}
+
+.set-list-item:first-child{
+    border-top: 1px;
+}
+
+.set-title {
+    text-align:center;
+    border-bottom: 2px solid grey;
+    background-color:darkblue;
+}
+
+.set-details-container{
+    display: flex;
+    grid-template-columns: 1fr .2fr 1fr;
+    padding: 0 6px 0 6px;
+  }
+
+  .set-details-padding{
+      flex-grow: 1;
+  }
+

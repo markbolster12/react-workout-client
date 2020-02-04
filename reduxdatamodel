@@ -1,0 +1,8 @@
+scratch
+    selected_exerciseid
+    exercise
+
+
+data
+    exercises
+    workouts

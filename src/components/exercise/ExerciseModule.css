@@ -1,0 +1,33 @@
+
+
+.exercise-list{
+    max-height:70%;
+}
+
+.exercise-list-item{
+    padding: 5px 3px 3px 3px;
+    border-width: 0 1px 1px 1px;
+    border-color: black;
+    border-style: solid;
+    background-color:blue;
+}
+
+.exercise-list-item:hover{
+    background-color:yellow;
+}
+
+.exercise-list-item:first-child{
+    border-width: 1px 1px 1px 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.exercise-section{
+    height:100%;
+}
+
+.exercise-edit-section{
+    margin-bottom:10px;
+}
+
+

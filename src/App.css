@@ -1,33 +1,202 @@
-.App {
-  text-align: center;
+@import "./styles/controls.css";
+@import "./styles/layout.css";
+
+
+html{
+  height:100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#root{
+  height:100%;
 }
 
-.App-header {
+
+.App{
+  width:100%;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.main-content {
+  padding: 10px 2% 10px 2%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  width:100%;
+  height:100vh;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.grid-double{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.grid-double>label{
+  text-align:right;
+}
+
+.grid-double>*{
+  margin:2px;
+}
+
+.screen-double{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.input-group{
+  margin: 0px 5% 0px 5%;
+}
+
+/* List stuff */
+.list-container{
+  margin-top:2%;
+  margin-bottom:2%;
+  overflow-y:overlay;
+  height:70%;
+
+}
+
+.workout-form{
+  padding-bottom:5px;
+  margin-bottom:5px;
+}
+
+.list-item-border:first-child {
+  border: 1px solid black;
+}
+
+.list-item-border {
+  border: 1px solid black;
+  border-top-width: 0;
+}
+
+.orchestra-layout{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.debug-border{
+  border: 1px solid red;
+}
+
+.menu{
+  background-color: green;
+  min-width: 100px;
+  width: 16%;
+  min-height:100vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+.menu-list-item{
+  border-width: 0 1px 1px 1px;
+  border-color: blue;
+  border-style: solid;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.menu-list-item:hover{
+  background-color:lightgreen;
+  color: black;
+}
+
+.menu-list-item:first-child{
+  border-width: 1px 1px 1px 1px;
+  border-color: blue;
+  border-style: solid;
+}
+
+.menu-mobile{
+  background-color:green;
+  width:80%;
+  position:absolute;
+}
+
+.mobile-nav {
+  display:none;
+}
+
+.hide-menu{
+  display:none;
+}
+
+/* Button stuff */
+
+.delete-button {
+  float:right;
+  margin: auto, 20px, auto, 20px;
+  display: flex;
+  font-size:16px;
+}
+
+.delete-button:hover {
+  color:red;
+}
+
+.fill-parent{
+  height:100%;
+}
+
+.main-frame{
+  max-height:100vh;
+  overflow-y: hidden;
+}
+
+.header-container{
+  height:45px;
+  
+}
+
+.primary-container{
+  position: relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:row;
+}
+
+.sidebar-container{
+  min-height:50%;
+  width:20%;
+  background-color:midnightblue;
+}
+
+.main-container{
+  width:80%;
+}
+
+@import "./styles/mobile_overrides.css";
+
+@media only screen and (max-width: 600px) {
+
+  .main-container{
+    width:100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .screen-double{
+    display:grid;
+    grid-template-columns: 1fr;
   }
+
+  .sidebar-container{
+    display:none;
+    z-index:200;
+    top:0;
+    position: fixed;
+    min-height:50%;
+    width:40%;
+  }
+  
+  .sidebar-show{
+    display:block;
+    max-height: 100vh;
+  }
+  
 }

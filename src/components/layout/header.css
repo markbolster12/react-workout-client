@@ -1,0 +1,39 @@
+.header{
+    height:100%;
+    width:100%;
+    z-index: 100;
+}
+
+.menu-toggler{
+    align-content: center;
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height:100%;
+    flex-grow: 3;
+    z-index:250;
+}
+
+.menu-toggle-container{
+    height:100%;
+    width:8vh;
+}
+
+.menu-toggler>div{
+    background-color:white;
+    height:3px;
+}
+
+.horizontal-flex{
+    display:flex;
+    flex-direction: row;
+    height:100%;
+}
+
+.side-spacer{
+    flex-grow: 1;
+}
+
+.menu-toggler>.toggle-spacer{
+    height: 0;
+}

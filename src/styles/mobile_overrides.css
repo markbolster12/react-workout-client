@@ -1,0 +1,27 @@
+@media only screen and (max-width: 600px) {
+
+    .main-container{
+      width:100%;
+    }
+  
+    .screen-double{
+      display:grid;
+      grid-template-columns: 1fr;
+    }
+  
+    .sidebar-container{
+      display:none;
+      z-index:200;
+      top:0;
+      position: fixed;
+      background-color: midnightblue;
+      min-height:50%;
+      width:100%;
+    }
+    
+    .sidebar-show{
+      display:block;
+      max-height: 100vh;
+    }
+    
+  }
