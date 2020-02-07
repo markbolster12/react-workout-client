@@ -16,10 +16,7 @@ export const workoutActions = {
 }
 
 export const loginActions = {
-    services: {
-        req_register_user: "REQ_REGISTER_USER",
-        resp_register_user: "RESP_REGISTER_USER"
-    },
+    registration_success: "REG_SUCCESS",
     auth_success: "AUTH_SUCCESS",
     auth_error: "AUTH_ERROR",
     logout: "LOGOUT"

@@ -18,6 +18,7 @@ export function exerciseReducer(exerciseData = initialState, action){
         case exerciseActions.addExercise:
         {
             let exIds = [...exerciseData.exerciseIds];
+            console.log(exIds);
             let exsById = {...exerciseData.exercisesById};
             if(!exsById[action.payload.id])
                 exIds.push(action.payload.id)

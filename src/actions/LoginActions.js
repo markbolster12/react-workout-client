@@ -14,17 +14,14 @@ export function registerUser(user){
             //credentials: "same-origin", // include, *same-origin, omit
             headers: svc_headers,
             body: JSON.stringify(user)
-        }).then((resp) =>  {
-            resp.json()
-                .then((json_body)=>console.log("JSON BODY:", json_body)
-            )},
+        }).then(
+            (resp) => {
+                resp.json().then(
+                    (json_body)=>dispatch({type:loginActions.registration_success}))
+            },
             (err) => console.log("ERR", err));
 
     }
-    /*return {
-        type: loginActions.services.req_register_user,
-        payload: user
-    }*/
 }
 
 export function login(username, password){
@@ -38,10 +35,17 @@ export function login(username, password){
             headers: svc_headers,
             body: JSON.stringify({"username": username, "password": password})
         }).then((resp) =>  {
-            console.log("HEADERS");
-            let auth_str = resp.headers.get("Authorization");
+            console.log("LOGIN RESPONSE");
             console.log(resp);
-            dispatch({type: loginActions.auth_success, payload:auth_str});
+            if(resp.status===200){
+                let auth_str = resp.headers.get("Authorization");
+                dispatch({type: loginActions.auth_success, payload:auth_str});
+            }
+            else{
+                dispatch({type: loginActions.auth_error, payload: "Unable to login"});
+            }
+            
+            
             //svc_headers.token = auth_str;
             //resp.json()
                 //.then((json_body)=>console.log("JSON BODY:", json_body)

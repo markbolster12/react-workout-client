@@ -34,6 +34,7 @@ class ExerciseList extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
+    console.log(state);
     let allExercises = state.exercises.exerciseIds.map(id => ({ ...state.exercises.exercisesById[id]}));
     //let selectedExercise = { ...state.exercises.exercisesById[state.selections.exerciseId]}
     return { exercises: allExercises }

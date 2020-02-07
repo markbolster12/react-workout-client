@@ -11,20 +11,14 @@ class RegisterComponent extends React.Component {
             username: "",
             password: "",
             repeated_password: "",
+            email:""
         }
     };
 
-    changeUsername = (e) => {
-        this.setState({username: e.target.value});
-    };
+    updateField(target){
+        this.setState({[target.name]:target.value})
 
-    changePassword = (e) => {
-        this.setState({password: e.target.value});
-    };
-
-    changeRepeatedPassword = (e) => {
-        this.setState({repeated_password: e.target.value});
-    };
+    }
 
     submitRegistration = () => {
         this.props.registerUser(this.state);
@@ -35,9 +29,10 @@ class RegisterComponent extends React.Component {
         return (
         <div>
             <h2>Register</h2>
-            <div><label>Username:</label><input type="text" value={this.state.username} onChange={this.changeUsername}></input></div>
-            <div><label>Password:</label><input type="password" value={this.state.password} onChange={this.changePassword}></input></div>
-            <div><label>Repeat Password:</label><input type="password" value={this.state.repeated_password} onChange={this.changeRepeatedPassword}></input></div>
+            <div><label>Username:</label><input type="text" name="username" value={this.state.username} onChange={e=>this.updateField(e.target)}></input></div>
+            <div><label>Email:</label><input type="text" name="email" value={this.state.email} onChange={e=>this.updateField(e.target)}></input></div>
+            <div><label>Password:</label><input type="password" name="password" value={this.state.password} onChange={e=>this.updateField(e.target)}></input></div>
+            <div><label>Repeat Password:</label><input type="password" name="repeated_password" value={this.state.repeated_password} onChange={e=>this.updateField(e.target)}></input></div>
             <div><button className="btn btn-primary" onClick={this.submitRegistration}>Register</button></div>
         </div>);
     }

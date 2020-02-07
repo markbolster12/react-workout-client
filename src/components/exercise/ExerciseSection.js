@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ExerciseList from './ExerciseList';
 import EditExercise from './EditExercise';
-import { receiveExercises, getExercises } from 'actions/ExerciseActions';
+import { getExercises } from 'actions/ExerciseActions';
 import './ExerciseModule.css';
 
 class ExerciseSection extends React.Component {
@@ -24,4 +24,4 @@ class ExerciseSection extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     return {exercise: state.exercises.exercise};
 }
-export default connect(mapStateToProps, {receiveExercises, getExercises})(ExerciseSection);
+export default connect(mapStateToProps, {getExercises})(ExerciseSection);

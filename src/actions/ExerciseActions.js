@@ -19,7 +19,7 @@ export function newExercise(exercise){
 
 export function saveExercise(exercise){
     return dispatch => {
-        fetch(settings.base_url + "/exercises/",
+        fetch(settings.base_url + "/exercises/" + exercise.name,
         {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, cors, *same-origin
@@ -54,29 +54,22 @@ export function getExercises() {
         })
         .then((resp) => {
             if(resp.status===403){
-                console.log("GOT RIGHT STATUS");
                 dispatch(selectPrimaryView("login"));
             }
             else if(resp.status===200){
                 resp.json()
                 .then((exercises)=> 
                 {
-                    dispatch(receiveExercises(exercises));
+                    dispatch({
+                        type: exerciseActions.receiveExercises,
+                        payload: exercises
+                    });
                 })
             }
             
         }
         ,(err)=>console.log(err));
         
-    }
-}
-
-
-
-export function receiveExercises(exerciseList){
-    return {
-        type: exerciseActions.receiveExercises,
-        payload: exerciseList
     }
 }
 
