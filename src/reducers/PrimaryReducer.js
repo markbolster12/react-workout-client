@@ -21,9 +21,8 @@ const extension = (state, action) =>
 {
     if(action.type===loginActions.logout)
     {
-        console.log("FDFDFDF");
         state = undefined;
-        return reducer(state,action);
+        return reducer(state, action);
     }
     return reducer(state,action);
 }
