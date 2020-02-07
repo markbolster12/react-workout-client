@@ -17,32 +17,28 @@ export function exerciseReducer(exerciseData = initialState, action){
         }
         case exerciseActions.addExercise:
         {
-            let exIds = [...exerciseData.exerciseIds];
-            console.log(exIds);
+            let exIds = [...exerciseData.exerciseIds, action.payload.name];
             let exsById = {...exerciseData.exercisesById};
-            if(!exsById[action.payload.id])
-                exIds.push(action.payload.id)
             
+            exsById[action.payload.name] = action.payload;
             
-            exsById[action.payload.id] = action.payload;
-            
-            return {...exerciseData, exercisesById:exsById, exerciseIds: exIds, exercise: {
-                name:"",
-                description:""
-            }}
-            //return {...exerciseData, exercisesById:exsById, exerciseIds: exIds}
+            return {
+                ...exerciseData, 
+                exercisesById:exsById, exerciseIds: exIds, 
+                exercise: {
+                    name:"",
+                    description:""
+                }
+            }
         }
         case exerciseActions.receiveExercises:
         {
             let exerciseIds = [];
             let exerciseMap = {};
-            //let id = 0;
-            action.payload.forEach(element => {
-                //element.id = id++;
 
-                exerciseIds.push(element.id);
-                exerciseMap[element.id] = element;
-                
+            action.payload.forEach(element => {
+                exerciseIds.push(element.name);
+                exerciseMap[element.name] = element;
             });
             return {...exerciseData, exerciseIds, exercisesById: exerciseMap};
         }

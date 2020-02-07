@@ -27,11 +27,13 @@ export function saveExercise(exercise){
             //credentials: "same-origin", // include, *same-origin, omit
             headers: svc_headers,
             body: JSON.stringify({...exercise})
-        }).then((resp) =>  resp.json().then(
-                (exercise)=> {
+        }).then(
+            (resp) =>  resp.json().then((exercise) => {
+                    console.log("WWWWWW:");
+                    console.log(exercise);
                     dispatch({type:exerciseActions.addExercise, payload:exercise});
                 }),
-                (err) => console.log("ERR", err));
+            (err) => console.log("ERR", err));
     }
 }
 
