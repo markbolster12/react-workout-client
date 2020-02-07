@@ -8,15 +8,17 @@ import { logout } from 'actions/LoginActions';
 class WorkoutAppMenu extends React.Component{
 
     render(){
-        console.log(this.props.logged_in);
         return (
             <div className="">
                 {!this.props.logged_in?
                 <div className="" onClick={() => this.changeView("login")}>Login</div>
                 :<div className="" onClick={this.props.logout}>Logout</div>}
                 
+                {!this.props.logged_in?<div className="" onClick={() => this.changeView("register")}>Register</div>:<div style={{display:"none"}}></div>}
                 
-                <div className="" onClick={() => this.changeView("register")}>Register</div>
+                
+                
+                
                 <div className="" onClick={() => this.changeView("exercises")}>Exercises</div>
                 {/*<div className="menu-list-item" onClick={() => this.changeView("workouts")}>Workouts</div>*/}
                 <div className="" onClick={() => this.changeView("perform_workout")}>Perform Workout</div>

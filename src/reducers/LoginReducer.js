@@ -11,15 +11,10 @@ const initialState = {
 
 export function loginReducer(loginData = initialState, action){
     switch (action.type){
-        case loginActions.services.req_register_user:
-        {
-            console.log("IN LOGIN REDUCER");
-            return { loginData }; 
-        }
         case loginActions.auth_success:
         {
             svc_headers.set("Authorization", action.payload);
-            return {...loginData, token: action.payload}
+            return {...loginData, errors:[], token: action.payload}
         }
         case loginActions.auth_error:
         {
