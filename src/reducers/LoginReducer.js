@@ -13,6 +13,8 @@ export function loginReducer(loginData = initialState, action){
     switch (action.type){
         case loginActions.auth_success:
         {
+            const myStorage = window.localStorage;
+            myStorage.setItem("header", action.payload);
             svc_headers.set("Authorization", action.payload);
             return {...loginData, errors:[], token: action.payload}
         }

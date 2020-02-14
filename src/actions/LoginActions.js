@@ -2,6 +2,7 @@ import { loginActions } from './actionTypes';
 import { svc_headers } from '../services/authentication';
 import { settings } from 'services/settings';
 import { selectPrimaryView } from './NavigationActions';
+import { setErrors } from './ApplicationActions';
 
 
 export function registerUser(user){
@@ -16,8 +17,19 @@ export function registerUser(user){
             body: JSON.stringify(user)
         }).then(
             (resp) => {
-                resp.json().then(
-                    (json_body)=>dispatch({type:loginActions.registration_success}))
+                if (resp.status===200){
+                    resp.json().then(
+                        (json_body)=>dispatch({type:loginActions.registration_success}))
+                }
+                else{
+                    resp.json().then(
+                        (json_body) => {
+                            console.log(json_body);
+                            dispatch(setErrors(json_body["error"]["details"]));
+                        }
+                    );
+                }
+                
             },
             (err) => console.log("ERR", err));
 
@@ -41,9 +53,11 @@ export function login(username, password){
                 let auth_str = resp.headers.get("Authorization");
                 dispatch({type: loginActions.auth_success, payload:auth_str});
             }
-            else{
-                dispatch({type: loginActions.auth_error, payload: "Unable to login"});
+            else if(resp.status===401)
+            {
+                dispatch(setErrors([{"text":"Invalid username or password."}]));
             }
+            
             
             
             //svc_headers.token = auth_str;
