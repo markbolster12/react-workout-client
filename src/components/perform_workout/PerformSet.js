@@ -37,7 +37,7 @@ class PerformSet extends React.Component {
     emptySet = {
         selectedExercise:null,
         exercise: {},
-        exerciseId:"",
+        exerciseId: "",
         reps: 0,
         amount: 0
     }
@@ -52,8 +52,7 @@ class PerformSet extends React.Component {
     render(){
         let options = this.props.exercises.map(
             (ex) => {
-                let opt = {value: ex.id, label:ex.name};
-                //opt['value'] = ex.id;
+                let opt = {value: ex.name, label:ex.name};
                 return opt;
             });
         const { selectedOption } = this.state.exerciseId;
@@ -82,6 +81,8 @@ class PerformSet extends React.Component {
 
     selectExercise = exer =>
     {
+        console.log("SELECTED EXERCISE");
+        console.log(exer);
         this.setState({exerciseId: exer.value});
         if(exer.value)
         {
@@ -105,10 +106,14 @@ class PerformSet extends React.Component {
 
     addSet = () =>
     {
+        console.log("he");
         if(this.state.exerciseId!==""){
             let selected = {reps:this.state.reps, amount:this.state.amount, exercise:{...this.props.exerciseMap[this.state.exerciseId]}};
             this.selectExercise({value:"",label:""});
             this.props.addSet(selected);
+        }
+        else{
+            console.log("exercise is blank");
         }
     }
 }
