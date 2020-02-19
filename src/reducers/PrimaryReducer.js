@@ -5,9 +5,11 @@ import { loginReducer } from './LoginReducer';
 import { navigationReducer } from './NavigationReducer';
 import { performWorkoutReducer } from './PerformWorkoutReducer';
 import { workoutHistoryReducer } from './WorkoutHistoryReducer';
+import { applicationReducer } from './ApplicationStateReducer';
 import { loginActions } from 'actions/actionTypes';
 
 const reducer = combineReducers({
+    application: applicationReducer,
     navigation: navigationReducer,
     exercises: exerciseReducer,
     workouts: workoutReducer,

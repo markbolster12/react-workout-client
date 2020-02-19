@@ -43,6 +43,7 @@ class GenerateUser extends React.Component {
     {
         return (
         <div>
+            <h5>Generate User</h5>
             <label>Name:</label><input name="name" value={this.state.name} onChange={(e)=>this.updateName(e)}></input>
             <button className="btn btn-primary btn-full" onClick={this.generate_user}>Create User</button>
         </div>

@@ -7,23 +7,23 @@ class WorkoutHistoryList extends React.Component{
     constructor(props)
     {
         super(props);
-        console.log(props);
         this.state = {workouts: this.props.workouts};
     }
 
     render(){
-        let workouts = this.props.workouts.map(wo => this.renderWorkout(wo));
+        let workouts = this.props.workouts.map((wo, k) => this.renderWorkout(wo, k));
         return(  
-        <div>
+        <div className="workout-section">
             {workouts}
         </div>);
     }
 
-    renderWorkout(workout){
-
+    renderWorkout(workout, k)
+    {
+        console.log(workout);
         return (
             <div key={workout.day}>
-                <CollapsibleListItem title={()=><div className="workout-details-header">{this.props.month}/{workout.day}/{this.props.year}</div>}
+                <CollapsibleListItem key={k} title={()=><div className="workout-details-header">{workout.month}/{workout.day}/{workout.year}</div>}
                                      details={()=>this.workoutDetails(workout)}>
 
                 </CollapsibleListItem>
@@ -32,8 +32,8 @@ class WorkoutHistoryList extends React.Component{
     }
 
     workoutDetails(workout) {
-        let detail = workout.sets.map((s) =>
-            <div>{s.exerciseName}</div>
+        let detail = workout.sets.map((s, k) =>
+            <div key={k}>{s.exerciseName}</div>
         );
         return (
             <div>

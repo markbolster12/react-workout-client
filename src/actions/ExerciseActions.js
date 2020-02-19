@@ -29,7 +29,6 @@ export function saveExercise(exercise){
             body: JSON.stringify({...exercise})
         }).then(
             (resp) =>  resp.json().then((exercise) => {
-                    console.log("WWWWWW:");
                     console.log(exercise);
                     dispatch({type:exerciseActions.addExercise, payload:exercise});
                 }),

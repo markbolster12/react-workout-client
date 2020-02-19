@@ -23,7 +23,6 @@ export const performWorkoutReducer = (state, action) => {
 
     switch(action.type){
         case performWorkoutActions.addSet:
-            
             let newSets = [...state.sets];
             newSets.push(action.payload);
 

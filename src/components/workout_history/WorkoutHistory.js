@@ -16,12 +16,33 @@ class WorkoutHistory extends React.Component {
         this.props.loadWorkouts(this.state.year, this.state.month);
     }
 
+    changeDate(target){
+        this.setState({[target.name]:target.value});
+        if (target.value==="")
+        {
+            return;
+        }
+        if(target.name==="month")
+        {
+            this.props.loadWorkouts(this.state.year, target.value);
+        }
+        else{
+            this.props.loadWorkouts(target.value, this.state.month);
+        }
+        
+
+    }
+
     render() {
         return(
         <div>
             <h3>Workouts</h3>
-            <WorkoutHistoryList workouts={this.props.workouts} year={this.state.year} month={this.state.month}></WorkoutHistoryList>
+            <label><input type="number" name="year" value={this.state.year} onChange={(e)=>this.changeDate(e.target)}></input></label>
+            <label><input type="number" name="month" value={this.state.month} onChange={(e)=>this.changeDate(e.target)}></input></label>
 
+            <div className="list-container scrollable">
+                <WorkoutHistoryList workouts={this.props.workouts} year={this.state.year} month={this.state.month}></WorkoutHistoryList>
+            </div>
         </div>);
     }
 }

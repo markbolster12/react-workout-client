@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from 'actions/LoginActions';
+import { clearErrors } from '../../actions/ApplicationActions';
 
 class LoginComponent extends React.Component{
 
@@ -23,15 +24,12 @@ class LoginComponent extends React.Component{
 
     render()
     {
-        console.log(this.props.errors);
         return (
             <div>
                 <div>Login Component</div>
                 <div><label>Username</label><input type="text" value={this.state.username} onChange={(e) => this.updateUsername(e)}></input></div>
                 <div><label>Password</label><input type="password" value={this.state.password} onChange={(e) => this.updatePassword(e)}></input></div>
-                <div>
-                    {this.props.errors.map((err, i)=><h3 key={i}>{err}</h3>)}
-                </div>
+                <div>{this.props.errors.map((e,i)=><div key={i}>{e.text}</div>)}</div>
                 <button className="btn btn-primary" onClick={()=>this.props.login(this.state.username, this.state.password)}>Login</button>
             </div>);
     }
@@ -39,7 +37,7 @@ class LoginComponent extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { errors: state.login.errors }
+   return {"errors": state.application.errors};
 }
 
-export default connect(mapStateToProps, { login })(LoginComponent);
+export default connect(mapStateToProps, { login, clearErrors })(LoginComponent);

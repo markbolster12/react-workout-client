@@ -81,8 +81,6 @@ class PerformSet extends React.Component {
 
     selectExercise = exer =>
     {
-        console.log("SELECTED EXERCISE");
-        console.log(exer);
         this.setState({exerciseId: exer.value});
         if(exer.value)
         {

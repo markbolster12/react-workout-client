@@ -3,6 +3,7 @@ import { headers } from '../services/authentication';
 
 
 export function addSet(set){
+    console.log("Adding it");
     return {
         type: performWorkoutActions.addSet,
         payload: set

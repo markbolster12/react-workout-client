@@ -18,6 +18,8 @@ export default function WorkoutAppLayout(props)
     const toggleMenu = () => setOpen(!open);
     const node = useRef();
 
+    useEffect(()=>console.log("App Reloading"));
+
     useOnClickOutside(node, () => setOpen(false));
 
     const menu_button = (<div className="menu-toggle-container" onClick={() => toggleMenu()}>

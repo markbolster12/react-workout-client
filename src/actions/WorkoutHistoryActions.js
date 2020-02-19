@@ -1,15 +1,16 @@
 import { workoutHistoryActions } from './actionTypes';
-import { headers } from '../services/authentication';
+import { svc_headers } from 'services/authentication';
+import { settings } from '../services/settings';
 
 export function loadWorkouts(year, month){
-    let url = "http://localhost:8080/finished/"+ year + "/" + month;
+    let url = settings.base_url + "/registry/" + year + "/" + month;
     return dispatch => {
         fetch(url,
         {
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            method: 'GET', 
             mode: 'cors', // no-cors, cors, *same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            headers: headers
+            headers: svc_headers
         }).then((resp) =>  resp.json()
           .then((workouts)=> {
                     dispatch({

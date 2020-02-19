@@ -7,12 +7,9 @@ export const exerciseActions = {
     receiveExercises: "RECEIVE_EXERCISES"
 }
 
-export const workoutActions = {
-    addWorkout: "ADD_WORKOUT",
-    editWorkout: "EDIT_WORKOUT",
-    saveWorkout: "SAVE_WORKOUT",
-    deleteWorkout: "DELETE_WORKOUT",
-    setWorkouts: "SET_WORKOUTS"
+export const applicationActions = {
+    addErrors: "ADD_ERRORS",
+    clearErrors: "CLEAR_ERRORS"
 }
 
 export const loginActions = {
@@ -31,6 +28,14 @@ export const performWorkoutActions = {
     removeSet: "REMOVE_SET",
     saveWorkout: "SAVE_WORKOUT"
 
+}
+
+export const workoutActions = {
+    addWorkout: "ADD_WORKOUT",
+    editWorkout: "EDIT_WORKOUT",
+    saveWorkout: "SAVE_WORKOUT",
+    deleteWorkout: "DELETE_WORKOUT",
+    setWorkouts: "SET_WORKOUTS"
 }
 
 export const workoutHistoryActions = {

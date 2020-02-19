@@ -7,7 +7,7 @@ class ExerciseList extends React.Component{
 
     renderExerciseList(){
         return this.props.exercises.map((val) => (
-            <div className="exercise-list-item" onClick={() => this.selectExercise(val)} key={val.id}>
+            <div className="exercise-list-item" key={val} onClick={() => this.selectExercise(val)} key={val.id}>
                 <span>{val.name}</span>
                 <div className="delete-button">
                     <i className="fa fa-close" onClick={() => this.deleteExercise(val)}></i>
