@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { selectPrimaryView } from 'actions/NavigationActions';
 import { getExercises } from 'actions/ExerciseActions';
 import { logout } from 'actions/LoginActions';
+import {
+    Link
+} from "react-router-dom";
 
 
 class WorkoutAppMenu extends React.Component{
@@ -11,19 +14,15 @@ class WorkoutAppMenu extends React.Component{
         return (
             <div className="">
                 {!this.props.logged_in?
-                <div className="" onClick={() => this.changeView("login")}>Login</div>
-                :<div className="" onClick={this.props.logout}>Logout</div>}
+                <Link to="/login"><div className="menu-item">Login</div></Link>
+                :<div className="menu-item" onClick={this.props.logout}>Logout</div>}
                 
-                {!this.props.logged_in?<div className="" onClick={() => this.changeView("register")}>Register</div>:<div style={{display:"none"}}></div>}
+                {!this.props.logged_in?<Link to="/register"><div className="menu-item">Register</div></Link>:<div style={{display:"none"}}></div>}
                 
-                
-                
-                
-                <div className="" onClick={() => this.changeView("exercises")}>Exercises</div>
-                {/*<div className="menu-list-item" onClick={() => this.changeView("workouts")}>Workouts</div>*/}
-                <div className="" onClick={() => this.changeView("perform_workout")}>Perform Workout</div>
-                <div className="" onClick={() => this.changeView("workout_history")}>Workout History</div>
-                <div className="" onClick={() => this.changeView("admin_console")}>Admin</div>
+                <Link to="/exercises"><div className="menu-item">Exercises</div></Link>
+                <Link to="/workout"><div className="menu-item">Workout</div></Link>
+                <Link to="/history"><div className="menu-item">History</div></Link>
+                <Link to="/admin"><div className="menu-item">Admin</div></Link>
             </div>
         );
     }
