@@ -2,6 +2,7 @@ import React from 'react';
 import WorkoutHistoryList from './WorkoutHistoryList';
 import { connect } from 'react-redux';
 import { loadWorkouts } from 'actions/WorkoutHistoryActions';
+import LineChart from './LineChart';
 
 class WorkoutHistory extends React.Component {
 
@@ -39,7 +40,7 @@ class WorkoutHistory extends React.Component {
             <h3>Workouts</h3>
             <label><input type="number" name="year" value={this.state.year} onChange={(e)=>this.changeDate(e.target)}></input></label>
             <label><input type="number" name="month" value={this.state.month} onChange={(e)=>this.changeDate(e.target)}></input></label>
-
+            <LineChart chart_name="exercise_chart" data={this.props.workouts}></LineChart>
             <div className="list-container scrollable">
                 <WorkoutHistoryList workouts={this.props.workouts} year={this.state.year} month={this.state.month}></WorkoutHistoryList>
             </div>

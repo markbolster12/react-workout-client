@@ -1,7 +1,7 @@
 import { applicationActions } from "../actions/actionTypes";
 
 const initialState = { 
-    errors: ["LOL"]
+    errors: []
 }
 
 export function applicationReducer(applicationData = initialState, action){

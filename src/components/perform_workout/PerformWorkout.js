@@ -30,7 +30,8 @@ class PerformWorkout extends React.Component {
     }
 
     saveWorkout = () => {
-        this.props.saveWorkout({day:2, sets: this.props.sets});
+        const save_date = new Date();
+        this.props.saveWorkout({day:save_date.getDay(), sets: this.props.sets});
     }
 }
 
