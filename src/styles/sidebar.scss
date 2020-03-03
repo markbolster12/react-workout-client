@@ -1,0 +1,26 @@
+@import './layout.scss';
+
+
+.sidebar-container{
+    height: calc(100vh - #{$header-height});
+    width: $sidebar-width;
+}
+
+.menu-item:hover {
+    background-color: #333;
+}
+
+.menu-item {
+    color: white;
+}
+
+.sidebar{
+    color:white;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar{
+        padding-top: 8vh;
+    }
+    
+}

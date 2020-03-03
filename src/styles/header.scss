@@ -1,7 +1,27 @@
+@import 'styles/colors.scss';
+@import 'styles/layout.scss';
+
 .header{
-    height:100%;
-    width:100%;
+    height: $header-height;
+    width: 100%;
     z-index: 100;
+    background-color: $primary-color;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    color:white;
+
+}
+
+.header-right{
+    grid-column: 2;
+    padding-right: 2rem;
+    text-align:right;
+}
+
+.header-left{
+    grid-column: 1;
+
 }
 
 .menu-toggler{
