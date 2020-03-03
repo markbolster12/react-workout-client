@@ -51,7 +51,11 @@ export function login(username, password){
             console.log(resp);
             if(resp.status===200){
                 let auth_str = resp.headers.get("Authorization");
-                dispatch({type: loginActions.auth_success, payload:auth_str});
+                const payload = {
+                    token: auth_str,
+                    username: username
+                }
+                dispatch({type: loginActions.auth_success, payload});
             }
             else if(resp.status===401)
             {
